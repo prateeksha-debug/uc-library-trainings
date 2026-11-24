@@ -1519,10 +1519,11 @@ const SH={
 
 /* ======================= Actions ======================= */
 let slidJust=false;
-/* Deeplink back to the native app that marks THIS flow complete.
-   ticket = "Getting help during a job" → app-training flow HELP_CENTER (flowTypeUrl: /appTraining/helpCenter).
-   Paste the SAME figma "Go back to app" branch deeplink for the help-centre flow below. */
-const COMPLETE_DEEPLINK='PASTE_FIGMA_GO_BACK_TO_APP_DEEPLINK_FOR_helpCenter_HERE';
+/* Deeplink back to the native app that marks THIS library content complete.
+   Lands on the existing appTraining/completeScreen; the backend branches on contentKey ->
+   updateLibraryContentTracking (userId from auth, contentKey from here). Swap the *.app.link base
+   with the real branch link configured to route to appTraining/completeScreen with these params. */
+const COMPLETE_DEEPLINK='https://n7kr.app.link/library-content-complete?route=appTraining/completeScreen&contentKey=library_html_ticket';
 const A={
  noop(){return false;},
  back(){back();}, soon(){toast(L('This option is not in the demo yet','Ye option demo mein abhi band hai'));return false;},
