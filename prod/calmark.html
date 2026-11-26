@@ -1519,7 +1519,7 @@ const SH={
 
 /* ======================= Actions ======================= */
 let slidJust=false;
-const COMPLETE_DEEPLINK='https://partnerapp.urbanclap.com/appTraining/library?contentKey=library_html_calmark';
+const COMPLETE_DEEPLINK=(function(){var _t=new URLSearchParams(location.search).get('token');return _t?'ucprovider://open/appTraining/startJob?flowType='+_t:'ucprovider://open/appTraining/library?contentKey=library_html_calmark';})();
 const A={
  noop(){return false;},
  back(){back();}, soon(){toast(L('This option is not in the demo yet','Ye option demo mein abhi band hai'));return false;},
