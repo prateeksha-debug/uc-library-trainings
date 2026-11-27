@@ -1519,7 +1519,7 @@ const SH={
 
 /* ======================= Actions ======================= */
 let slidJust=false;
-const COMPLETE_DEEPLINK=(function(){var _t=new URLSearchParams(location.search).get('token');return _t?'ucprovider://open/appTraining/startJob?flowType='+_t:'ucprovider://open/appTraining/library?contentKey=library_html_brkemg';})();
+const COMPLETE_DEEPLINK=(function(){var q=new URLSearchParams(location.search);var ctid=q.get('contentTrackingId'),ctk=q.get('chapterTrackingId'),ck=q.get('contentKey'),chk=q.get('chapterKey');if(ctid&&ctk)return 'ucprovider://open/rn_page?route=ucAcademy/chapterDetails&chapterTrackingId='+ctk+'&completedContentTrackingId='+ctid;if(ck&&chk)return 'ucprovider://open/rn_page?route=ucAcademy/libraryChapterDetails&chapterKey='+chk+'&completedContentKey='+ck;return '';})();
 const A={
  noop(){return false;},
  back(){back();}, soon(){toast(L('This option is not in the demo yet','Ye option demo mein abhi band hai'));return false;},
